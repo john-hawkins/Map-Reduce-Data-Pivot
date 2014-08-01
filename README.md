@@ -8,7 +8,6 @@ The idea would be familiar to anyone who has used Pivot tables in spreadsheet ap
 Take data that looks like this:
 
 Store,Product,Number  
----
 Store-1, Hats, 4  
 Store-1, Shoes, 2  
 Store-1, Gloves, 1  
@@ -23,7 +22,6 @@ Store-3, Umbrellas, 1
 and turn it into this :
 
 Store,  Hats, Shoes, Gloves, Umbrellas  
----
 Store-1, 4,    2,     1,      ?  
 Store-2, 0,    9,     4,      ?  
 Store-3, 2,    0,     3,      1  
