@@ -16,8 +16,6 @@ public class ColumnMapper extends Mapper<Object, Text, Text, Text> {
 			Context context
 	) throws IOException, InterruptedException {
  		
- 		System.out.println("STARTING JOB TWO -- BUILDING COL DATA");
- 		
  		Configuration conf = context.getConfiguration();
 
  		int colIndex = Integer.parseInt(conf.get("colIndex"));
@@ -26,7 +24,7 @@ public class ColumnMapper extends Mapper<Object, Text, Text, Text> {
  		
  		if(splitLine.length < colIndex) {	
  			// There is a conflict between the data row and the 
- 			// CSV cols specified in the set-up
+ 			// CSV columns specified in the set-up
  		} else {
  			
  			String colKey = splitLine[colIndex];

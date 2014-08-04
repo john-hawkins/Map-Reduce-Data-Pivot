@@ -14,13 +14,11 @@ public class TableMapper extends Mapper<Object, Text, Text, Text> {
 			Text value, 
 			Context context
 	) throws IOException, InterruptedException {
- 		
- 		System.out.println("STARTING JOB THREE -- BUILDING FINAL TABLE");
 
  		String[] splitLine = value.toString().split("\t");
  		/*
  		 * We are just going to emit the key value pairs from the input
- 		 * All work is done in the reducer
+ 		 * All work is done in the Reducer
  		 */
  		if(splitLine.length >1) {	
  			keyStr.set(splitLine[0]);

@@ -16,8 +16,6 @@ public class PivotMapper extends Mapper<Object, Text, Text, Text> {
 			Context context
 	) throws IOException, InterruptedException {
  		
- 		System.out.println("STARTING JOB ONE -- BUILDING ROW DATA");
- 		
  		Configuration conf = context.getConfiguration();
  		
  		int colIndex = Integer.parseInt(conf.get("colIndex"));
@@ -36,7 +34,7 @@ public class PivotMapper extends Mapper<Object, Text, Text, Text> {
  		
  		if(splitLine.length < maxIndex) {	
  			// There is a conflict between the data row and the 
- 			// CSV cols specified in the set-up
+ 			// CSV columns specified in the set-up
  		} else {
  			
  			String rowKey = splitLine[rowIndex].trim();

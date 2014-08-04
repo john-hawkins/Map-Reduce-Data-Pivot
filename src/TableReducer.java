@@ -31,12 +31,12 @@ public class TableReducer extends Reducer<Text, Text, Text, Text> {
 		
 		while (it.hasNext()) {	
 			String toProcess = it.next().toString();
-			System.out.println("------ PROCESSING: " + toProcess );
+
 			String[] myValues = toProcess.split("\\|\\|");
 			for(int i=0; i<myValues.length; i++) {
-				System.out.println("------ PROCESSING: " + myValues[i] );
+
 				String[] keyVal = myValues[i].split("===");
-				System.out.println("------ SPLIT TO KEY: " + keyVal[0] );
+
 				if(keyVal.length>1) {
 					addEntryToHashMap(myMap, keyVal[0], keyVal[1]);
 				}
@@ -52,9 +52,10 @@ public class TableReducer extends Reducer<Text, Text, Text, Text> {
 	}
  
  	
- 	protected LinkedHashMap<String, String> getHashMap(Configuration conf)
- 		throws IOException, InterruptedException 
- 		{
+ 	protected LinkedHashMap<String, String> getHashMap(
+ 			Configuration conf
+ 		) throws IOException, InterruptedException  {
+ 		
 	 		String columnFolder = conf.get("colNameFolder");
 	 		LinkedHashMap<String, String> myMap = new LinkedHashMap<String, String>();
 	 		FileSystem hdfs =FileSystem.get(conf);
@@ -68,7 +69,10 @@ public class TableReducer extends Reducer<Text, Text, Text, Text> {
 	 		return myMap;
  	}
  	
- 	protected LinkedHashMap<String, String> clearHashMap(LinkedHashMap<String, String> myMap) {
+ 	protected LinkedHashMap<String, String> clearHashMap(
+ 			LinkedHashMap<String, String> myMap
+		) {
+ 		
  		for (Map.Entry<String, String> entry : myMap.entrySet()) {
  		    String key = entry.getKey();
  		    myMap.put(key, "");
@@ -76,9 +80,12 @@ public class TableReducer extends Reducer<Text, Text, Text, Text> {
  		return myMap;
  	}
 
- 	protected void addEntryToHashMap(LinkedHashMap<String, String> myMap, String myKey, String myValue) {
+ 	protected void addEntryToHashMap(
+ 			LinkedHashMap<String, String> myMap, 
+ 			String myKey, 
+ 			String myValue
+		) {
 
-		System.out.println("--------- Adding to HashMap : " + myKey + ":" + myValue );
  		String curentEntry  = myMap.get(myKey);
  		if(curentEntry == "") {
  			myMap.put(myKey, myValue);
@@ -88,7 +95,12 @@ public class TableReducer extends Reducer<Text, Text, Text, Text> {
  		}
  	}
  	
- 	protected String getStringRepresentation(LinkedHashMap<String, String> myMap, String pivotMode, String defaultValue) {
+ 	protected String getStringRepresentation(
+ 			LinkedHashMap<String, String> myMap, 
+ 			String pivotMode, 
+ 			String defaultValue
+		) {
+ 		
  		String myString = "";
  		boolean hasData = false;
  		for (Map.Entry<String, String> entry : myMap.entrySet()) {
@@ -102,19 +114,19 @@ public class TableReducer extends Reducer<Text, Text, Text, Text> {
  		return myString;
  	}
  	
- 	protected String convertDataToValue(String rawDataValues, String pivotMode, String defaultValue) {
+ 	protected String convertDataToValue(
+ 			String rawDataValues, 
+ 			String pivotMode, 
+ 			String defaultValue
+		) {
+ 		
  		String result = "";
  		
  		if(rawDataValues.equals("")) { // NO DATA
  			return defaultValue;
  		}
  		
- 		System.out.println("------ GENERATING THE OUTPUT STRING FOR: " + rawDataValues);
- 		System.out.println("------ PIVOT MODE [" + pivotMode + "]");
- 		
  		String[] theValues = rawDataValues.split("\\|\\|");
-
- 		System.out.println("------ VALUES TO PROCESS: " +  Integer.toString(theValues.length) );
  		
  		if( pivotMode.equals("c") ) { // JUST COUNT THE NUMBER OF ENTRIES
  			result = Integer.toString(theValues.length) ;

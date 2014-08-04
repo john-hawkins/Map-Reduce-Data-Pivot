@@ -21,12 +21,19 @@ Store-3, Umbrellas, 1
 
 and turn it into this :
 
-Store,  Hats, Shoes, Gloves, Umbrellas  
-Store-1, 4,    2,     1,      ?  
-Store-2, 0,    9,     4,      ?  
-Store-3, 2,    0,     3,      1  
+		Gloves	Hats	Shoes Umbrellas  
+Store-1		1.0,	4.0,	2.0,	0  
+Store-2		4.0,	0.0,	9.0,	0  
+Store-3		3.0,	2.0,	0.0,	1.0  
+
 
 and be able to that for millions of records and large numbers of products.
+
+
+Usage
+-----
+
+hadoop jar ~/mybin/MapReduceDataPivot.jar s 1 0 2 testdata testoutput
 
 
 Features
