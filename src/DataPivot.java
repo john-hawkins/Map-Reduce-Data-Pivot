@@ -25,8 +25,8 @@ public class DataPivot {
         String defaultValue = "0";
 	    try{
 	        pivotMode = args[0].charAt(0);
-	        colIndex = Integer.parseInt(args[1]);
-	        rowIndex = Integer.parseInt(args[2]);
+	        rowIndex = Integer.parseInt(args[1]);
+	        colIndex = Integer.parseInt(args[2]);
 	        dataIndex = Integer.parseInt(args[3]);
 	        inputFolder = args[4];
 	        outputFolder = args[5];
@@ -148,10 +148,10 @@ public class DataPivot {
 	     System.out.println("		                s = Sum Data (Requires Numeric Field)");
 	     System.out.println("		                a = Average Data (Requires Numeric Field)");
 	     System.out.println("		                c = Count Data (Count Occurences)");
-	     System.out.println("		Second Argument: Columns Index = The field index that will become");
-	     System.out.println("		                                 the columns of the pivot table ");
-	     System.out.println("		Third Argument: Rows Index = The field index that will become");
+	     System.out.println("		Second Argument: Rows Index = The field index that will become");
 	     System.out.println("		                                 the rows of the pivot table ");
+	     System.out.println("		Third Argument: Columns Index = The field index that will become");
+	     System.out.println("		                                 the columns of the pivot table ");
 	     System.out.println("		Fourth Argument: Data Index = The field index that will become");
 	     System.out.println("		                                 the data cells of the pivot table ");
 	     System.out.println("		Fifth Argument: input = The folder name in HDFS where the input files");
