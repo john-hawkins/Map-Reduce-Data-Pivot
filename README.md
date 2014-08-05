@@ -33,7 +33,7 @@ and be able to that for millions or billions of records and pivot across a very 
 Usage
 -----
 
-hadoop jar {JAR FILE NAME} {Data Aggregation Type: S=Sum, A=Average, C=Count} {ROW INDEX} {COL INDEX} {DATA INDEX} {INPUT FOLDER} {OUTPUT FOLDER}  
+hadoop jar {JAR FILE} {AGGREGATION: S=Sum, A=Average, C=Count} {ROW INDEX} {COL INDEX} {DATA INDEX} {INPUT FOLDER} {OUTPUT FOLDER}  
 
 For example  
 
